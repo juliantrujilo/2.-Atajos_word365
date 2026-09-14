@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atajos de Teclado – Word 365 | SENA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --word: #2b579a;
+  --word-claro: #4a7ecf;
+  --sena-verde: #39a900;
+  --sena-naranja: #ff6b00;
+  --texto: #1a1a2e;
+  --texto-dim: #4a5568;
+  --texto-dimmer: #718096;
+  --bg: #f8fafc;
+  --borde: #e2e8f0;
+
+  --cat1: #e74c3c;  /* Archivo */
+  --cat2: #2b579a;  /* Formato texto */
+  --cat3: #27ae60;  /* Párrafo */
+  --cat4: #8b5cf6;  /* Edición */
+  --cat5: #f59e0b;  /* Navegación */
+  --cat6: #0891b2;  /* Selección */
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Inter', sans-serif;
+  color:var(--texto);
+  background:var(--bg);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* ══ TOPBAR ══ */
+.topbar {
+  position:sticky; top:0; z-index:100;
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--borde);
+  padding:12px 20px;
+  display:flex; align-items:center; justify-content:space-between;
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
+  flex-wrap:wrap; gap:10px;
+}
+.topbar-left { display:flex; align-items:center; gap:12px; }
+.sena-logo {
+  background:var(--sena-verde); color:#fff;
+  font-weight:900; font-size:15px;
+  padding:6px 13px; border-radius:8px; letter-spacing:1px;
+}
+.topbar-brand { font-family:'Syne',sans-serif; font-size:13px; font-weight:700; }
+.topbar-sub { font-size:11px; color:var(--texto-dimmer); margin-top:1px; }
+.topbar-nav { display:flex; gap:14px; flex-wrap:wrap; }
+.topbar-nav a {
+  text-decoration:none; font-size:12px; font-weight:600;
+  color:var(--texto-dimmer); transition:color .2s; white-space:nowrap;
+}
+.topbar-nav a:hover { color:var(--word); }
+
+/* ══ HERO ══ */
+.hero {
+  background:linear-gradient(135deg, #0d1b3e 0%, #1a2f6e 60%, #1e3a8a 100%);
+  padding:56px 20px; text-align:center; position:relative; overflow:hidden;
+}
+.hero::before {
+  content:''; position:absolute;
+  width:500px; height:500px; background:var(--word);
+  border-radius:50%; top:-250px; left:-120px; opacity:0.2; filter:blur(80px);
+}
+.hero::after {
+  content:''; position:absolute;
+  width:350px; height:350px; background:var(--word-claro);
+  border-radius:50%; bottom:-180px; right:-80px; opacity:0.15; filter:blur(70px);
+}
+.hero-tag {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(43,87,154,0.25); border:1px solid rgba(74,126,207,0.4);
+  color:#93b8f0; padding:7px 18px; border-radius:30px;
+  font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+  margin-bottom:20px; position:relative; z-index:1;
+}
+.hero h1 {
+  font-family:'Syne',sans-serif;
+  font-size:clamp(28px, 6vw, 54px); font-weight:800;
+  color:#fff; line-height:1.15; margin-bottom:14px;
+  position:relative; z-index:1;
+}
+.hero h1 span {
+  background:linear-gradient(135deg, #93b8f0, var(--word-claro));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.hero-desc {
+  font-size:clamp(14px,2vw,17px); color:rgba(255,255,255,0.7);
+  max-width:560px; margin:0 auto 28px; position:relative; z-index:1;
+}
+
+/* ══ STATS ══ */
+.stats {
+  display:flex; justify-content:center; gap:32px; flex-wrap:wrap;
+  position:relative; z-index:1;
+}
+.stat {
+  background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12);
+  border-radius:14px; padding:14px 24px; text-align:center;
+  backdrop-filter:blur(8px);
+}
+.stat-num {
+  font-family:'Syne',sans-serif; font-size:28px; font-weight:800;
+  color:#fff; display:block;
+}
+.stat-label { font-size:12px; color:rgba(255,255,255,0.6); }
+
+/* ══ FILTROS ══ */
+.filtros-wrap { max-width:1000px; margin:0 auto; padding:36px 20px 0; }
+.filtros-wrap h2 {
+  font-family:'Syne',sans-serif; font-size:14px; font-weight:700;
+  color:var(--texto-dimmer); letter-spacing:1.5px; text-transform:uppercase;
+  margin-bottom:14px;
+}
+.filtros {
+  display:flex; gap:10px; flex-wrap:wrap;
+}
+.filtro-btn {
+  padding:8px 16px; border-radius:30px; border:2px solid var(--borde);
+  background:#fff; font-size:12px; font-weight:700; cursor:pointer;
+  color:var(--texto-dim); transition:all .2s; font-family:'Inter',sans-serif;
+}
+.filtro-btn:hover { border-color:var(--word); color:var(--word); }
+.filtro-btn.activo {
+  background:var(--word); border-color:var(--word); color:#fff;
+}
+
+/* ══ BUSCADOR ══ */
+.buscador-wrap { max-width:1000px; margin:16px auto 0; padding:0 20px; }
+.buscador {
+  display:flex; align-items:center; gap:10px;
+  background:#fff; border:2px solid var(--borde); border-radius:12px;
+  padding:10px 16px; transition:border-color .2s;
+}
+.buscador:focus-within { border-color:var(--word); }
+.buscador span { font-size:18px; }
+.buscador input {
+  border:none; outline:none; font-size:14px;
+  color:var(--texto); font-family:'Inter',sans-serif; width:100%;
+  background:transparent;
+}
+.buscador input::placeholder { color:var(--texto-dimmer); }
+
+/* ══ CATEGORÍAS ══ */
+.section { max-width:1000px; margin:0 auto; padding:36px 20px 48px; }
+
+.categoria {
+  margin-bottom:32px;
+  border-radius:20px; overflow:hidden;
+  border:2px solid var(--borde);
+  background:#fff;
+}
+.categoria-header {
+  display:flex; align-items:center; gap:12px;
+  padding:18px 24px;
+  background:var(--cat-color);
+  color:#fff;
+}
+.categoria-header .emoji { font-size:24px; }
+.categoria-header h3 {
+  font-family:'Syne',sans-serif; font-size:18px; font-weight:800;
+}
+.categoria-header .count {
+  margin-left:auto; background:rgba(255,255,255,0.2);
+  padding:3px 10px; border-radius:20px; font-size:12px; font-weight:700;
+}
+
+/* ══ GRID DE ATAJOS ══ */
+.atajos-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(280px,1fr));
+  gap:1px; background:var(--borde);
+}
+.atajo-item {
+  background:#fff; padding:14px 20px;
+  display:flex; align-items:center; gap:14px;
+  transition:background .15s;
+  cursor:default;
+}
+.atajo-item:hover { background:#f0f6ff; }
+.atajo-item.oculto { display:none; }
+
+.kbd-group {
+  display:flex; align-items:center; gap:4px; flex-shrink:0; min-width:130px;
+}
+kbd {
+  display:inline-flex; align-items:center; justify-content:center;
+  background:#fff; border:2px solid var(--borde);
+  border-bottom:3px solid #c5cfe0;
+  border-radius:7px; padding:4px 9px;
+  font-family:'Inter',sans-serif; font-size:12px; font-weight:700;
+  color:var(--texto); min-width:28px; text-align:center;
+  box-shadow:0 1px 2px rgba(0,0,0,0.08);
+  white-space:nowrap;
+}
+.plus {
+  font-size:12px; color:var(--texto-dimmer); font-weight:700;
+}
+.atajo-accion {
+  font-size:13px; color:var(--texto-dim); line-height:1.4; flex:1;
+}
+.atajo-accion strong { color:var(--texto); font-weight:600; display:block; }
+
+/* ══ SIN RESULTADOS ══ */
+.sin-resultados {
+  text-align:center; padding:40px; color:var(--texto-dimmer);
+  font-size:15px; display:none;
+}
+.sin-resultados .emoji { font-size:40px; display:block; margin-bottom:10px; }
+
+/* ══ TIP BOX ══ */
+.tip-box {
+  background:linear-gradient(135deg, rgba(43,87,154,0.06), rgba(43,87,154,0.02));
+  border:2px solid rgba(43,87,154,0.15);
+  border-radius:16px; padding:20px 24px; margin:0 20px;
+  display:flex; gap:14px; align-items:flex-start;
+}
+.tip-box .tip-icon { font-size:28px; flex-shrink:0; }
+.tip-box h4 {
+  font-family:'Syne',sans-serif; font-size:15px; font-weight:700;
+  color:var(--word); margin-bottom:4px;
+}
+.tip-box p { font-size:13px; color:var(--texto-dim); line-height:1.6; }
+
+/* ══ FOOTER ══ */
+footer {
+  background:var(--texto); text-align:center;
+  padding:24px; font-size:12px; color:rgba(255,255,255,0.55); line-height:1.8;
+  margin-top:48px;
+}
+footer span { color:#fff; font-weight:700; }
+
+/* ══ REVEAL ══ */
+.reveal { opacity:0; transform:translateY(20px); transition:opacity .5s ease, transform .5s ease; }
+.reveal.in { opacity:1; transform:translateY(0); }
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:640px){
+  .topbar { flex-direction:column; align-items:flex-start; }
+  .stats { gap:12px; }
+  .atajos-grid { grid-template-columns:1fr; }
+  .kbd-group { min-width:110px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <div class="topbar-left">
+    <div class="sena-logo">SENA</div>
+    <div>
+      <div class="topbar-brand">Atajos de Teclado · Word 365</div>
+      <div class="topbar-sub">Prevención y Control Ambiental · Ficha 3410069</div>
+    </div>
+  </div>
+  <div class="topbar-nav">
+    <a href="#archivo">Archivo</a>
+    <a href="#formato">Formato</a>
+    <a href="#parrafo">Párrafo</a>
+    <a href="#edicion">Edición</a>
+    <a href="#navegacion">Navegación</a>
+    <a href="#seleccion">Selección</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">⌨️ Microsoft Word 365</div>
+  <h1>Atajos de Teclado<br><span>Word 365</span></h1>
+  <p class="hero-desc">Domina estos comandos y multiplica tu velocidad en Word. Menos clics, más productividad.</p>
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-num">35</span>
+      <span class="stat-label">Atajos</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">6</span>
+      <span class="stat-label">Categorías</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">⚡</span>
+      <span class="stat-label">Productividad</span>
+    </div>
+  </div>
+</div>
+
+<!-- BUSCADOR -->
+<div class="buscador-wrap reveal">
+  <div class="buscador">
+    <span>🔍</span>
+    <input type="text" id="buscador" placeholder="Busca un atajo... ej: copiar, negrita, guardar">
+  </div>
+</div>
+
+<!-- FILTROS -->
+<div class="filtros-wrap reveal">
+  <h2>Filtrar por categoría</h2>
+  <div class="filtros">
+    <button class="filtro-btn activo" data-cat="todos">✅ Todos</button>
+    <button class="filtro-btn" data-cat="archivo">📁 Archivo</button>
+    <button class="filtro-btn" data-cat="formato">✏️ Formato texto</button>
+    <button class="filtro-btn" data-cat="parrafo">📄 Párrafo</button>
+    <button class="filtro-btn" data-cat="edicion">✂️ Edición</button>
+    <button class="filtro-btn" data-cat="navegacion">🧭 Navegación</button>
+    <button class="filtro-btn" data-cat="seleccion">🖱️ Selección</button>
+  </div>
+</div>
+
+<!-- SECCIÓN PRINCIPAL -->
+<div class="section" id="atajos">
+
+  <div class="sin-resultados" id="sinResultados">
+    <span class="emoji">🤔</span>
+    No se encontraron atajos para tu búsqueda.
+  </div>
+
+  <!-- CATEGORÍA 1: ARCHIVO -->
+  <div class="categoria reveal" data-cat="archivo" id="archivo" style="--cat-color: var(--cat1);">
+    <div class="categoria-header">
+      <span class="emoji">📁</span>
+      <h3>Archivo y Documento</h3>
+      <span class="count">6 atajos</span>
+    </div>
+    <div class="atajos-grid">
+      <div class="atajo-item" data-texto="nuevo documento">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>N</kbd></div>
+        <div class="atajo-accion"><strong>Nuevo documento</strong>Crea un documento en blanco nuevo</div>
+      </div>
+      <div class="atajo-item" data-texto="abrir documento">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>A</kbd></div>
+        <div class="atajo-accion"><strong>Abrir documento</strong>Abre el cuadro de diálogo para abrir un archivo</div>
+      </div>
+      <div class="atajo-item" data-texto="guardar documento">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>G</kbd></div>
+        <div class="atajo-accion"><strong>Guardar</strong>Guarda el documento actual</div>
+      </div>
+      <div class="atajo-item" data-texto="guardar como">
+        <div class="kbd-group"><kbd>F12</kbd></div>
+        <div class="atajo-accion"><strong>Guardar como</strong>Guarda con nuevo nombre o formato</div>
+      </div>
+      <div class="atajo-item" data-texto="imprimir">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>P</kbd></div>
+        <div class="atajo-accion"><strong>Imprimir</strong>Abre el panel de impresión</div>
+      </div>
+      <div class="atajo-item" data-texto="cerrar documento">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>W</kbd></div>
+        <div class="atajo-accion"><strong>Cerrar documento</strong>Cierra el documento actual</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORÍA 2: FORMATO TEXTO -->
+  <div class="categoria reveal" data-cat="formato" id="formato" style="--cat-color: var(--cat2);">
+    <div class="categoria-header">
+      <span class="emoji">✏️</span>
+      <h3>Formato de Texto</h3>
+      <span class="count">8 atajos</span>
+    </div>
+    <div class="atajos-grid">
+      <div class="atajo-item" data-texto="negrita bold">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>N</kbd></div>
+        <div class="atajo-accion"><strong>Negrita</strong>Aplica o quita el formato negrita al texto</div>
+      </div>
+      <div class="atajo-item" data-texto="cursiva itálica">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>K</kbd></div>
+        <div class="atajo-accion"><strong>Cursiva</strong>Aplica o quita el formato cursiva al texto</div>
+      </div>
+      <div class="atajo-item" data-texto="subrayado underline">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>S</kbd></div>
+        <div class="atajo-accion"><strong>Subrayado</strong>Aplica o quita el subrayado al texto</div>
+      </div>
+      <div class="atajo-item" data-texto="tachado strikethrough">
+        <div class="kbd-group"><kbd>Alt</kbd><span class="plus">+</span><kbd>H</kbd><span class="plus">+</span><kbd>4</kbd></div>
+        <div class="atajo-accion"><strong>Tachado</strong>Aplica una línea sobre el texto seleccionado</div>
+      </div>
+      <div class="atajo-item" data-texto="aumentar tamaño fuente">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>Shift</kbd><span class="plus">+</span><kbd>&gt;</kbd></div>
+        <div class="atajo-accion"><strong>Aumentar tamaño de fuente</strong>Incrementa el tamaño del texto seleccionado</div>
+      </div>
+      <div class="atajo-item" data-texto="reducir tamaño fuente">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>Shift</kbd><span class="plus">+</span><kbd>&lt;</kbd></div>
+        <div class="atajo-accion"><strong>Reducir tamaño de fuente</strong>Disminuye el tamaño del texto seleccionado</div>
+      </div>
+      <div class="atajo-item" data-texto="hipervínculo enlace link">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>Alt</kbd><span class="plus">+</span><kbd>K</kbd></div>
+        <div class="atajo-accion"><strong>Insertar hipervínculo</strong>Abre el diálogo para insertar un enlace</div>
+      </div>
+      <div class="atajo-item" data-texto="limpiar formato quitar">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>Barra</kbd></div>
+        <div class="atajo-accion"><strong>Limpiar formato</strong>Elimina todo el formato del texto seleccionado</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORÍA 3: PÁRRAFO -->
+  <div class="categoria reveal" data-cat="parrafo" id="parrafo" style="--cat-color: var(--cat3);">
+    <div class="categoria-header">
+      <span class="emoji">📄</span>
+      <h3>Formato de Párrafo</h3>
+      <span class="count">6 atajos</span>
+    </div>
+    <div class="atajos-grid">
+      <div class="atajo-item" data-texto="centrar texto alinear centro">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>T</kbd></div>
+        <div class="atajo-accion"><strong>Centrar texto</strong>Alinea el párrafo al centro de la página</div>
+      </div>
+      <div class="atajo-item" data-texto="alinear izquierda">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>Q</kbd></div>
+        <div class="atajo-accion"><strong>Alinear a la izquierda</strong>Alinea el párrafo a la izquierda</div>
+      </div>
+      <div class="atajo-item" data-texto="alinear derecha">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>D</kbd></div>
+        <div class="atajo-accion"><strong>Alinear a la derecha</strong>Alinea el párrafo a la derecha</div>
+      </div>
+      <div class="atajo-item" data-texto="justificar texto">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>J</kbd></div>
+        <div class="atajo-accion"><strong>Justificar</strong>Alinea el texto a ambos márgenes</div>
+      </div>
+      <div class="atajo-item" data-texto="sangría aumentar">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>F6</kbd></div>
+        <div class="atajo-accion"><strong>Aumentar sangría</strong>Mueve el párrafo hacia la derecha</div>
+      </div>
+      <div class="atajo-item" data-texto="interlineado doble espacio">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>2</kbd></div>
+        <div class="atajo-accion"><strong>Interlineado doble</strong>Aplica espacio doble entre líneas</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORÍA 4: EDICIÓN -->
+  <div class="categoria reveal" data-cat="edicion" id="edicion" style="--cat-color: var(--cat4);">
+    <div class="categoria-header">
+      <span class="emoji">✂️</span>
+      <h3>Edición</h3>
+      <span class="count">7 atajos</span>
+    </div>
+    <div class="atajos-grid">
+      <div class="atajo-item" data-texto="copiar copy">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>C</kbd></div>
+        <div class="atajo-accion"><strong>Copiar</strong>Copia el texto o elemento seleccionado</div>
+      </div>
+      <div class="atajo-item" data-texto="pegar paste">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>V</kbd></div>
+        <div class="atajo-accion"><strong>Pegar</strong>Pega el contenido del portapapeles</div>
+      </div>
+      <div class="atajo-item" data-texto="cortar cut">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>X</kbd></div>
+        <div class="atajo-accion"><strong>Cortar</strong>Corta el texto o elemento seleccionado</div>
+      </div>
+      <div class="atajo-item" data-texto="deshacer undo">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>Z</kbd></div>
+        <div class="atajo-accion"><strong>Deshacer</strong>Revierte la última acción realizada</div>
+      </div>
+      <div class="atajo-item" data-texto="rehacer redo repetir">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>Y</kbd></div>
+        <div class="atajo-accion"><strong>Rehacer</strong>Repite la acción que fue deshecha</div>
+      </div>
+      <div class="atajo-item" data-texto="buscar find search">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>B</kbd></div>
+        <div class="atajo-accion"><strong>Buscar</strong>Abre el panel de búsqueda en el documento</div>
+      </div>
+      <div class="atajo-item" data-texto="reemplazar buscar replace">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>L</kbd></div>
+        <div class="atajo-accion"><strong>Buscar y reemplazar</strong>Busca y reemplaza texto en el documento</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORÍA 5: NAVEGACIÓN -->
+  <div class="categoria reveal" data-cat="navegacion" id="navegacion" style="--cat-color: var(--cat5);">
+    <div class="categoria-header">
+      <span class="emoji">🧭</span>
+      <h3>Navegación en el Documento</h3>
+      <span class="count">5 atajos</span>
+    </div>
+    <div class="atajos-grid">
+      <div class="atajo-item" data-texto="inicio documento principio">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>Inicio</kbd></div>
+        <div class="atajo-accion"><strong>Ir al inicio</strong>Mueve el cursor al principio del documento</div>
+      </div>
+      <div class="atajo-item" data-texto="fin final documento">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>Fin</kbd></div>
+        <div class="atajo-accion"><strong>Ir al final</strong>Mueve el cursor al final del documento</div>
+      </div>
+      <div class="atajo-item" data-texto="palabra siguiente">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>→</kbd></div>
+        <div class="atajo-accion"><strong>Siguiente palabra</strong>Mueve el cursor a la siguiente palabra</div>
+      </div>
+      <div class="atajo-item" data-texto="palabra anterior">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>←</kbd></div>
+        <div class="atajo-accion"><strong>Palabra anterior</strong>Mueve el cursor a la palabra anterior</div>
+      </div>
+      <div class="atajo-item" data-texto="párrafo siguiente anterior bajar subir">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>↑↓</kbd></div>
+        <div class="atajo-accion"><strong>Párrafo anterior / siguiente</strong>Salta al inicio del párrafo anterior o siguiente</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORÍA 6: SELECCIÓN -->
+  <div class="categoria reveal" data-cat="seleccion" id="seleccion" style="--cat-color: var(--cat6);">
+    <div class="categoria-header">
+      <span class="emoji">🖱️</span>
+      <h3>Selección de Texto</h3>
+      <span class="count">3 atajos</span>
+    </div>
+    <div class="atajos-grid">
+      <div class="atajo-item" data-texto="seleccionar todo all">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>E</kbd></div>
+        <div class="atajo-accion"><strong>Seleccionar todo</strong>Selecciona todo el contenido del documento</div>
+      </div>
+      <div class="atajo-item" data-texto="seleccionar palabra doble clic">
+        <div class="kbd-group"><kbd>Ctrl</kbd><span class="plus">+</span><kbd>Shift</kbd><span class="plus">+</span><kbd>→</kbd></div>
+        <div class="atajo-accion"><strong>Seleccionar hasta siguiente palabra</strong>Extiende la selección palabra por palabra</div>
+      </div>
+      <div class="atajo-item" data-texto="seleccionar línea">
+        <div class="kbd-group"><kbd>Shift</kbd><span class="plus">+</span><kbd>Fin</kbd></div>
+        <div class="atajo-accion"><strong>Seleccionar hasta el final de línea</strong>Extiende la selección hasta el final de la línea</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIP BOX -->
+  <div class="tip-box reveal">
+    <span class="tip-icon">💡</span>
+    <div>
+      <h4>Consejo de aprendizaje</h4>
+      <p>No intentes memorizar todos los atajos de una vez. Practica <strong>3 atajos por semana</strong> y en poco tiempo los usarás sin pensar. Empieza por los más frecuentes: <kbd style="background:#f0f0f0; border:1px solid #ccc; border-radius:4px; padding:2px 6px; font-size:11px;">Ctrl+C</kbd>, <kbd style="background:#f0f0f0; border:1px solid #ccc; border-radius:4px; padding:2px 6px; font-size:11px;">Ctrl+V</kbd>, <kbd style="background:#f0f0f0; border:1px solid #ccc; border-radius:4px; padding:2px 6px; font-size:11px;">Ctrl+Z</kbd> y <kbd style="background:#f0f0f0; border:1px solid #ccc; border-radius:4px; padding:2px 6px; font-size:11px;">Ctrl+G</kbd>.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>Atajos de Teclado · <span>Word 365</span></p>
+  <p>Centro Agroempresarial y Desarrollo Pecuario del Huila · <span>SENA</span></p>
+  <p>Instructor: <span>Julián Andrés Trujillo Morales</span> · Ficha <span>3410069</span></p>
+</footer>
+
+<script>
+  // Reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold:0.05 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const t = document.querySelector(a.getAttribute('href'));
+      if(t) t.scrollIntoView({ behavior:'smooth', block:'start' });
+    });
+  });
+
+  // Filtros por categoría
+  const filtros = document.querySelectorAll('.filtro-btn');
+  const categorias = document.querySelectorAll('.categoria');
+
+  filtros.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filtros.forEach(b => b.classList.remove('activo'));
+      btn.classList.add('activo');
+      const cat = btn.dataset.cat;
+      categorias.forEach(c => {
+        if(cat === 'todos' || c.dataset.cat === cat){
+          c.style.display = '';
+        } else {
+          c.style.display = 'none';
+        }
+      });
+      document.getElementById('buscador').value = '';
+      mostrarTodosItems();
+    });
+  });
+
+  // Buscador
+  function mostrarTodosItems(){
+    document.querySelectorAll('.atajo-item').forEach(i => i.classList.remove('oculto'));
+    document.querySelectorAll('.categoria').forEach(c => c.style.display = '');
+    document.getElementById('sinResultados').style.display = 'none';
+    // restaurar filtro activo
+    const catActiva = document.querySelector('.filtro-btn.activo').dataset.cat;
+    if(catActiva !== 'todos'){
+      categorias.forEach(c => {
+        c.style.display = c.dataset.cat === catActiva ? '' : 'none';
+      });
+    }
+  }
+
+  document.getElementById('buscador').addEventListener('input', function(){
+    const q = this.value.toLowerCase().trim();
+    filtros.forEach(b => b.classList.remove('activo'));
+    document.querySelector('[data-cat="todos"]').classList.add('activo');
+
+    if(!q){
+      mostrarTodosItems();
+      return;
+    }
+
+    let hayResultados = false;
+    categorias.forEach(cat => {
+      let catTieneResultados = false;
+      cat.querySelectorAll('.atajo-item').forEach(item => {
+        const texto = (item.dataset.texto + ' ' + item.innerText).toLowerCase();
+        if(texto.includes(q)){
+          item.classList.remove('oculto');
+          catTieneResultados = true;
+          hayResultados = true;
+        } else {
+          item.classList.add('oculto');
+        }
+      });
+      cat.style.display = catTieneResultados ? '' : 'none';
+    });
+
+    document.getElementById('sinResultados').style.display = hayResultados ? 'none' : 'block';
+  });
+</script>
+</body>
+</html>
